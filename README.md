@@ -4,7 +4,7 @@ Self-Driving Car Engineer Nanodegree Program
 ---
 ## Reflection
 * ### Main idea of MPC: 
-This method predicts motion state after a few steps, according to viechle motion model and initial state. Then it calculates the cost value of those steps, which is caused by difference between the planned trajectory and predicted trajectory. Besides we can also add more elements to the cost to make the driving process more steady.
+This method predicts motion state after a few steps, according to viechle motion model and initial state. Then it calculates the cost value of those steps, which is caused by difference between the planned trajectory and predicted trajectory. Besides we can also add more elements to the cost to make the driving process more steadily.
 * #### Discription of model:
   1. State: we use 4 value to discreibe motion of a viechle: x(coordinate), y(coordinate), psi(yaw angle), v(velocity). Besides we use another two values to measure difference between the planned trajectory and predicted trajectory: cte(cross track error) and epsi(erorr of oritention). All the 6 term we can call as "state".
   2. Actuators: we use 2 parameter to control a viechle: a(acceleration) and delta(steering angle).
