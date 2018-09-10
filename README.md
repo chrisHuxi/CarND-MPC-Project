@@ -12,8 +12,8 @@ This method predicts motion state after a few steps, according to viechle motion
   
   ![](https://github.com/chrisHuxi/CarND-MPC-Project/blob/master/img/equation.PNG)
   
-* #### reason why and how I choose N (timestep length) and dt (elapsed duration between timesteps) values:
-  1. I choose N = 10 and dt = 0.1
+* #### Reason why and how I choose N (timestep length) and dt (elapsed duration between timesteps) values:
+  1. I choose N = 15 and dt = 0.667
   2. I tried a few couples such as N = 25 and dt = 0.05 or N = 5, dt = 0.1, but when N(timestep length) become too large, the prediction process will need more time, so that the viechle will have higher delay, the viechle can't drive as usual. And when N is too samll, viechle can't see far, so there will be big defference between predicted trajectory and planned trajectory, and the viechle will swing crazily from one side to the other.
   3. When dt(timestep duration) is too large, that will result in less frequent actuations, which makes it harder to accurately approximate a continuous planned trajectory. Therefore we should set dt as samll as possible.
   4. "A good approach to setting N, dt, and T is to first determine a reasonable range for T and then tune dt and N appropriately.T should be as large as possible, while dt should be as small as possible." --udacity
@@ -22,7 +22,7 @@ This method predicts motion state after a few steps, according to viechle motion
   With reference to course's hints, I transform waypoints into viechle's view, that helps to implement visualization. And I use cubic-polynomial fitting to calculate the predicted trajectory, rather than linear-polynomial fitting.
   
 * #### Details on how to deal with latency.
-  In order to come over latency, we can assume our viechle has already move for awhile based on motion model and current state(x, y, psi, v) before we transform waypoints into viechle's view, and according to motion model, it is also necessary to know a(acceleration) and delta(steering angle). And I use the value come from simulator at first time, then I go through MPC to get the acceleration and steering angle, then I record them and use them for the next time we need acceleration and steering angle to come over latency. Besides I set latency = 0.11 second while the simulator's latency = 0.1 second, because I think runing MPC also cost a few time.
+  In order to come over latency, we can assume our viechle has already move for awhile based on motion model and current state(x, y, psi, v) before we transform waypoints into viechle's view, and according to motion model, it is also necessary to know a(acceleration) and delta(steering angle). And I use the value come from simulator. Besides I set latency = 0.11 second while the simulator's latency = 0.1 second, because I think runing MPC also cost a few time.
   
 ## Dependencies
 
