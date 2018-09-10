@@ -22,7 +22,7 @@ This method predicts motion state after a few steps, according to viechle motion
   With reference to course's hints, I transform waypoints into viechle's view, that helps to implement visualization. And I use cubic-polynomial fitting to calculate the predicted trajectory, rather than linear-polynomial fitting.
   
 * #### Details on how to deal with latency.
-  In order to come over latency, we can assume our viechle has already move for awhile based on motion model and current state(x, y, psi, v) before we transform waypoints into viechle's view, and according to motion model, it is also necessary to know a(acceleration) and delta(steering angle). And I use the value come from simulator. Besides I set latency = 0.11 second while the simulator's latency = 0.1 second, because I think runing MPC also cost a few time.
+  In order to come over latency, we can assume our viechle has already move for awhile based on motion model and current state(x, y, psi, v) before we transform waypoints into viechle's view, and according to motion model, it is also necessary to know a(acceleration) and delta(steering angle). And I use the value come from simulator. Besides I set latency = 0.11 second while the simulator's latency = 0.1 second, because I think runing MPC also cost a few time. [reference: How to incorporate latency into the model](https://discussions.udacity.com/t/how-to-incorporate-latency-into-the-model/257391/3)
   
 ## Dependencies
 
